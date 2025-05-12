@@ -1,4 +1,5 @@
 import pygame
+import random
 from constants import *
 from player import Player
 from circleshape import *
@@ -43,6 +44,12 @@ def main():
             if player.collide(asteroid):
                 print("Game over!")
                 raise SystemExit
+        for shot in shots:
+            for asteroid in asteroids:
+                if shot.collide(asteroid):
+                    shot.kill()
+                    asteroid.split()
+                    break
 
     
             
